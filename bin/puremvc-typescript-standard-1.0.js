@@ -179,8 +179,8 @@ if( typeof define === "function" )
                         delete this.commandMap[notificationName];
                     }
                 };
-                Controller.instance = null;
                 Controller.SINGLETON_MSG = "Controller singleton already constructed!";
+                Controller.instance = null;
                 Controller.getInstance = function getInstance() {
                     if(!Controller.instance) {
                         Controller.instance = new Controller();
@@ -496,8 +496,8 @@ if( typeof define === "function" )
                     if (typeof proxyName === "undefined") { proxyName = null; }
                     if (typeof data === "undefined") { data = null; }
                         _super.call(this);
-                    this.proxyName = null;
                     this.data = null;
+                    this.proxyName = null;
                     this.proxyName = (proxyName != null) ? proxyName : Proxy.NAME;
                     if(data != null) {
                         this.setData(data);

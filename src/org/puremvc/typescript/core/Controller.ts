@@ -50,7 +50,6 @@ module puremvc
 		commandMap:Object = null;
 
 		/**
-		/**
 		 * Constructs a <code>Controller</code> instance.
 		 *
 		 * This <code>IController</code> implementation is a singleton, so you should not call the
@@ -178,21 +177,21 @@ module puremvc
 		}
 
 		/**
-		 * Singleton instance local reference.
-		 *
-		 * @protected
-		 */
-		static instance:IController;
-
-		/**
-		 * Error message used to indicate that a controller singleton is already constructed when
-		 * trying to constructs the class twice.
+		 * Error message used to indicate that a <code>Controller</code> singleton is already
+		 * constructed when trying to constructs the class twice.
 		 *
 		 * @protected
 		 * @constant
 		 */
 		static SINGLETON_MSG:string = "Controller singleton already constructed!";
 		
+		/**
+		 * Singleton instance local reference.
+		 *
+		 * @protected
+		 */
+		static instance:IController = null;
+
 		/**
 		 * <code>Controller</code> singleton Factory method.
 		 * 

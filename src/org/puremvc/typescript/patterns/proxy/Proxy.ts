@@ -29,19 +29,20 @@ module puremvc
 		extends Notifier
 		implements IProxy, INotifier
 	{
+
 		/**
 		 * The data object controlled by the <code>Proxy</code>.
 		 *
 		 * @protected
 		 */
-		proxyName:string = null;
-
+		data:any = null;
+		
 		/**
 		 * The name of the <code>Proxy</code>.
 		 *
 		 * @protected
 		 */
-		data:any = null;
+		proxyName:string = null;
 
 		/**
 		 * Constructs a <code>Proxy</code> instance.

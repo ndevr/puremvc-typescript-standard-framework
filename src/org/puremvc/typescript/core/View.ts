@@ -43,6 +43,8 @@ module puremvc
 		observerMap:Object = null;
 
 		/**
+		 * Constructs a <code>View</code> instance.
+		 *
 		 * This <code>IView</code> implementation is a singleton, so you should not call the
 		 * constructor directly, but instead call the static singleton Factory method
 		 * <code>View.getInstance()</code>.
@@ -264,6 +266,9 @@ module puremvc
 		}
 
 		/**
+		 * Error message used to indicate that a <code>View</code> singleton is already
+		 * constructed when trying to constructs the class twice.
+		 *
 		 * @constant
 		 * @protected
 		 */

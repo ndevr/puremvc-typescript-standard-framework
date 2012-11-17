@@ -27,7 +27,7 @@ module puremvc
 	 * <LI>Providing the ability to override the specific <code>Model</code>, <code>View</code> and
 	 * <code>Controller</code> singletons created.
 	 * <LI>Providing a single point of contact to the application for registering
-	 * <code>Commands</code> and notifying <code>Observer</code>s.
+	 * <code>ICommand</code>s and notifying <code>Observer</code>s.
 	 *
 	 * This <code>Facade</code> implementation is a singleton and cannot be instantiated directly,
 	 * but instead calls the static singleton factory method <code>Facade.getInstance()</code>.
@@ -375,6 +375,9 @@ module puremvc
 		}
 
 		/**
+		 * Error message used to indicate that a <code>Facade</code> singleton is already
+		 * constructed when trying to constructs the class twice.
+		 *
 		 * @constant
 		 * @protected
 		 */
@@ -385,7 +388,7 @@ module puremvc
 		 *
 		 * @protected
 		 */
-		static instance:IFacade;
+		static instance:IFacade = null;
 
 		/**
 		 * Facade singleton factory method.
