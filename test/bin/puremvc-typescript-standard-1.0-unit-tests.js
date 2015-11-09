@@ -13,14 +13,13 @@ if( typeof define === "function" )
                 }
                 return ControllerTestVO;
             })();
-            test.ControllerTestVO = ControllerTestVO;    
+            test.ControllerTestVO = ControllerTestVO;
         })(test || (test = {}));
-        
+
         var __extends = this.__extends || function (d, b) {
             function __() { this.constructor = d; }
-            __.prototype = b.prototype;
-            d.prototype = new __();
-        }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
         var test;
         (function (test) {
             "use strict";
@@ -28,7 +27,6 @@ if( typeof define === "function" )
                 __extends(ControllerTestCommand2, _super);
                 function ControllerTestCommand2() {
                     _super.apply(this, arguments);
-        
                 }
                 ControllerTestCommand2.prototype.execute = function (notification) {
                     var vo = notification.getBody();
@@ -36,9 +34,9 @@ if( typeof define === "function" )
                 };
                 return ControllerTestCommand2;
             })(puremvc.SimpleCommand);
-            test.ControllerTestCommand2 = ControllerTestCommand2;    
+            test.ControllerTestCommand2 = ControllerTestCommand2;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
@@ -46,7 +44,6 @@ if( typeof define === "function" )
                 __extends(ControllerTestCommand, _super);
                 function ControllerTestCommand() {
                     _super.apply(this, arguments);
-        
                 }
                 ControllerTestCommand.prototype.execute = function (notification) {
                     var vo = notification.getBody();
@@ -54,9 +51,9 @@ if( typeof define === "function" )
                 };
                 return ControllerTestCommand;
             })(puremvc.SimpleCommand);
-            test.ControllerTestCommand = ControllerTestCommand;    
+            test.ControllerTestCommand = ControllerTestCommand;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
@@ -111,16 +108,16 @@ if( typeof define === "function" )
                 };
                 return ControllerTest;
             })();
-            test.ControllerTest = ControllerTest;    
+            test.ControllerTest = ControllerTest;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
             var ModelTestProxy = (function (_super) {
                 __extends(ModelTestProxy, _super);
                 function ModelTestProxy() {
-                        _super.call(this, ModelTestProxy.NAME, '');
+                    _super.call(this, ModelTestProxy.NAME, '');
                 }
                 ModelTestProxy.prototype.onRegister = function () {
                     this.setData(ModelTestProxy.ON_REGISTER_CALLED);
@@ -133,9 +130,9 @@ if( typeof define === "function" )
                 ModelTestProxy.ON_REMOVE_CALLED = 'onRemove Called';
                 return ModelTestProxy;
             })(puremvc.Proxy);
-            test.ModelTestProxy = ModelTestProxy;    
+            test.ModelTestProxy = ModelTestProxy;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
@@ -150,11 +147,7 @@ if( typeof define === "function" )
                 };
                 ModelTest.prototype.testRegisterAndRetrieveProxy = function () {
                     var model = puremvc.Model.getInstance();
-                    model.registerProxy(new puremvc.Proxy('colors', [
-                        'red', 
-                        'green', 
-                        'blue'
-                    ]));
+                    model.registerProxy(new puremvc.Proxy('colors', ['red', 'green', 'blue']));
                     var proxy = model.retrieveProxy('colors');
                     var data = proxy.getData();
                     YUITest.Assert.isNotNull(data, "Expecting data !== null");
@@ -166,11 +159,7 @@ if( typeof define === "function" )
                 };
                 ModelTest.prototype.testRegisterAndRemoveProxy = function () {
                     var model = puremvc.Model.getInstance();
-                    var proxy = new puremvc.Proxy('sizes', [
-                        '7', 
-                        '13', 
-                        '21'
-                    ]);
+                    var proxy = new puremvc.Proxy('sizes', ['7', '13', '21']);
                     model.registerProxy(proxy);
                     var removedProxy = model.removeProxy('sizes');
                     YUITest.Assert.areEqual('sizes', removedProxy.getProxyName(), "Expecting removedProxy.getProxyName() == 'sizes'");
@@ -179,12 +168,7 @@ if( typeof define === "function" )
                 };
                 ModelTest.prototype.testHasProxy = function () {
                     var model = puremvc.Model.getInstance();
-                    var proxy = new puremvc.Proxy('aces', [
-                        'clubs', 
-                        'spades', 
-                        'hearts', 
-                        'diamonds'
-                    ]);
+                    var proxy = new puremvc.Proxy('aces', ['clubs', 'spades', 'hearts', 'diamonds']);
                     model.registerProxy(proxy);
                     YUITest.Assert.isTrue(model.hasProxy('aces'), "Expecting model.hasProxy('aces') === true");
                     model.removeProxy('aces');
@@ -200,46 +184,39 @@ if( typeof define === "function" )
                 };
                 return ModelTest;
             })();
-            test.ModelTest = ModelTest;    
+            test.ModelTest = ModelTest;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
             var ViewTestMediator = (function (_super) {
                 __extends(ViewTestMediator, _super);
                 function ViewTestMediator(view) {
-                        _super.call(this, ViewTestMediator.NAME, view);
+                    _super.call(this, ViewTestMediator.NAME, view);
                 }
                 ViewTestMediator.prototype.listNotificationInterests = function () {
-                    return [
-                        'ABC', 
-                        'DEF', 
-                        'GHI'
-                    ];
+                    return ['ABC', 'DEF', 'GHI'];
                 };
                 ViewTestMediator.NAME = "ViewTestMediator";
                 return ViewTestMediator;
             })(puremvc.Mediator);
-            test.ViewTestMediator = ViewTestMediator;    
+            test.ViewTestMediator = ViewTestMediator;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
             var ViewTestMediator2 = (function (_super) {
                 __extends(ViewTestMediator2, _super);
                 function ViewTestMediator2(view) {
-                        _super.call(this, ViewTestMediator2.NAME, view);
+                    _super.call(this, ViewTestMediator2.NAME, view);
                 }
                 ViewTestMediator2.prototype.getViewTest = function () {
                     return this.viewComponent;
                 };
                 ViewTestMediator2.prototype.listNotificationInterests = function () {
-                    return [
-                        test.ViewTest.NOTE1, 
-                        test.ViewTest.NOTE2
-                    ];
+                    return [test.ViewTest.NOTE1, test.ViewTest.NOTE2];
                 };
                 ViewTestMediator2.prototype.handleNotification = function (notification) {
                     this.getViewTest().lastNotification = notification.getName();
@@ -247,24 +224,22 @@ if( typeof define === "function" )
                 ViewTestMediator2.NAME = 'ViewTestMediator2';
                 return ViewTestMediator2;
             })(puremvc.Mediator);
-            test.ViewTestMediator2 = ViewTestMediator2;    
+            test.ViewTestMediator2 = ViewTestMediator2;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
             var ViewTestMediator3 = (function (_super) {
                 __extends(ViewTestMediator3, _super);
                 function ViewTestMediator3(view) {
-                        _super.call(this, ViewTestMediator3.NAME, view);
+                    _super.call(this, ViewTestMediator3.NAME, view);
                 }
                 ViewTestMediator3.prototype.getViewTest = function () {
                     return this.viewComponent;
                 };
                 ViewTestMediator3.prototype.listNotificationInterests = function () {
-                    return [
-                        test.ViewTest.NOTE3
-                    ];
+                    return [test.ViewTest.NOTE3];
                 };
                 ViewTestMediator3.prototype.handleNotification = function (notification) {
                     this.getViewTest().lastNotification = notification.getName();
@@ -272,16 +247,16 @@ if( typeof define === "function" )
                 ViewTestMediator3.NAME = 'ViewTestMediator3';
                 return ViewTestMediator3;
             })(puremvc.Mediator);
-            test.ViewTestMediator3 = ViewTestMediator3;    
+            test.ViewTestMediator3 = ViewTestMediator3;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
             var ViewTestMediator4 = (function (_super) {
                 __extends(ViewTestMediator4, _super);
                 function ViewTestMediator4(view) {
-                        _super.call(this, ViewTestMediator4.NAME, view);
+                    _super.call(this, ViewTestMediator4.NAME, view);
                 }
                 ViewTestMediator4.prototype.getViewTest = function () {
                     return this.viewComponent;
@@ -295,24 +270,22 @@ if( typeof define === "function" )
                 ViewTestMediator4.NAME = 'ViewTestMediator4';
                 return ViewTestMediator4;
             })(puremvc.Mediator);
-            test.ViewTestMediator4 = ViewTestMediator4;    
+            test.ViewTestMediator4 = ViewTestMediator4;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
             var ViewTestMediator5 = (function (_super) {
                 __extends(ViewTestMediator5, _super);
                 function ViewTestMediator5(view) {
-                        _super.call(this, ViewTestMediator5.NAME, view);
+                    _super.call(this, ViewTestMediator5.NAME, view);
                 }
                 ViewTestMediator5.prototype.getViewTest = function () {
                     return this.viewComponent;
                 };
                 ViewTestMediator5.prototype.listNotificationInterests = function () {
-                    return [
-                        test.ViewTest.NOTE5
-                    ];
+                    return [test.ViewTest.NOTE5];
                 };
                 ViewTestMediator5.prototype.handleNotification = function (notification) {
                     this.getViewTest().counter++;
@@ -320,24 +293,22 @@ if( typeof define === "function" )
                 ViewTestMediator5.NAME = 'ViewTestMediator5';
                 return ViewTestMediator5;
             })(puremvc.Mediator);
-            test.ViewTestMediator5 = ViewTestMediator5;    
+            test.ViewTestMediator5 = ViewTestMediator5;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
             var ViewTestMediator6 = (function (_super) {
                 __extends(ViewTestMediator6, _super);
                 function ViewTestMediator6(mediatorName, view) {
-                        _super.call(this, mediatorName, view);
+                    _super.call(this, mediatorName, view);
                 }
                 ViewTestMediator6.prototype.getViewTest = function () {
                     return this.viewComponent;
                 };
                 ViewTestMediator6.prototype.listNotificationInterests = function () {
-                    return [
-                        test.ViewTest.NOTE6
-                    ];
+                    return [test.ViewTest.NOTE6];
                 };
                 ViewTestMediator6.prototype.handleNotification = function (notification) {
                     this.facade.removeMediator(this.getMediatorName());
@@ -348,26 +319,26 @@ if( typeof define === "function" )
                 ViewTestMediator6.NAME = 'ViewTestMediator6';
                 return ViewTestMediator6;
             })(puremvc.Mediator);
-            test.ViewTestMediator6 = ViewTestMediator6;    
+            test.ViewTestMediator6 = ViewTestMediator6;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
             var ViewTestNote = (function (_super) {
                 __extends(ViewTestNote, _super);
                 function ViewTestNote(name, body) {
-                        _super.call(this, ViewTestNote.NAME, body);
+                    _super.call(this, ViewTestNote.NAME, body);
                 }
-                ViewTestNote.NAME = "ViewTestNote";
-                ViewTestNote.create = function create(body) {
+                ViewTestNote.create = function (body) {
                     return new ViewTestNote(ViewTestNote.NAME, body);
-                }
+                };
+                ViewTestNote.NAME = "ViewTestNote";
                 return ViewTestNote;
             })(puremvc.Notification);
-            test.ViewTestNote = ViewTestNote;    
+            test.ViewTestNote = ViewTestNote;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
@@ -513,9 +484,9 @@ if( typeof define === "function" )
                 ViewTest.NOTE6 = "Notification6";
                 return ViewTest;
             })();
-            test.ViewTest = ViewTest;    
+            test.ViewTest = ViewTest;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
@@ -523,16 +494,14 @@ if( typeof define === "function" )
                 __extends(MacroCommandTestSub, _super);
                 function MacroCommandTestSub() {
                     _super.apply(this, arguments);
-        
                 }
                 MacroCommandTestSub.prototype.hasFacade = function () {
                     return this.facade instanceof puremvc.Facade;
                 };
                 return MacroCommandTestSub;
             })(puremvc.MacroCommand);
-            test.MacroCommandTestSub = MacroCommandTestSub;    
+            test.MacroCommandTestSub = MacroCommandTestSub;
         })(test || (test = {}));
-        
         var test;
         (function (test) {
             "use strict";
@@ -545,9 +514,9 @@ if( typeof define === "function" )
                 }
                 return MacroCommandTestVO;
             })();
-            test.MacroCommandTestVO = MacroCommandTestVO;    
+            test.MacroCommandTestVO = MacroCommandTestVO;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
@@ -555,7 +524,6 @@ if( typeof define === "function" )
                 __extends(MacroCommandTestSub1Command, _super);
                 function MacroCommandTestSub1Command() {
                     _super.apply(this, arguments);
-        
                 }
                 MacroCommandTestSub1Command.prototype.execute = function (notification) {
                     var vo = notification.getBody();
@@ -563,9 +531,9 @@ if( typeof define === "function" )
                 };
                 return MacroCommandTestSub1Command;
             })(puremvc.SimpleCommand);
-            test.MacroCommandTestSub1Command = MacroCommandTestSub1Command;    
+            test.MacroCommandTestSub1Command = MacroCommandTestSub1Command;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
@@ -573,7 +541,6 @@ if( typeof define === "function" )
                 __extends(MacroCommandTestSub2Command, _super);
                 function MacroCommandTestSub2Command() {
                     _super.apply(this, arguments);
-        
                 }
                 MacroCommandTestSub2Command.prototype.execute = function (notification) {
                     var vo = notification.getBody();
@@ -581,9 +548,9 @@ if( typeof define === "function" )
                 };
                 return MacroCommandTestSub2Command;
             })(puremvc.SimpleCommand);
-            test.MacroCommandTestSub2Command = MacroCommandTestSub2Command;    
+            test.MacroCommandTestSub2Command = MacroCommandTestSub2Command;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
@@ -591,7 +558,6 @@ if( typeof define === "function" )
                 __extends(MacroCommandTestCommand, _super);
                 function MacroCommandTestCommand() {
                     _super.apply(this, arguments);
-        
                 }
                 MacroCommandTestCommand.prototype.initializeMacroCommand = function () {
                     this.addSubCommand(test.MacroCommandTestSub1Command);
@@ -599,9 +565,9 @@ if( typeof define === "function" )
                 };
                 return MacroCommandTestCommand;
             })(puremvc.MacroCommand);
-            test.MacroCommandTestCommand = MacroCommandTestCommand;    
+            test.MacroCommandTestCommand = MacroCommandTestCommand;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
@@ -623,9 +589,9 @@ if( typeof define === "function" )
                 };
                 return MacroCommandTest;
             })();
-            test.MacroCommandTest = MacroCommandTest;    
+            test.MacroCommandTest = MacroCommandTest;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
@@ -637,9 +603,9 @@ if( typeof define === "function" )
                 }
                 return SimpleCommandTestVO;
             })();
-            test.SimpleCommandTestVO = SimpleCommandTestVO;    
+            test.SimpleCommandTestVO = SimpleCommandTestVO;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
@@ -647,7 +613,6 @@ if( typeof define === "function" )
                 __extends(SimpleCommandTestCommand, _super);
                 function SimpleCommandTestCommand() {
                     _super.apply(this, arguments);
-        
                 }
                 SimpleCommandTestCommand.prototype.execute = function (notification) {
                     var vo = notification.getBody();
@@ -655,9 +620,9 @@ if( typeof define === "function" )
                 };
                 return SimpleCommandTestCommand;
             })(puremvc.SimpleCommand);
-            test.SimpleCommandTestCommand = SimpleCommandTestCommand;    
+            test.SimpleCommandTestCommand = SimpleCommandTestCommand;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
@@ -665,16 +630,15 @@ if( typeof define === "function" )
                 __extends(SimpleCommandTestSub, _super);
                 function SimpleCommandTestSub() {
                     _super.apply(this, arguments);
-        
                 }
                 SimpleCommandTestSub.prototype.hasFacade = function () {
                     return this.facade instanceof puremvc.Facade;
                 };
                 return SimpleCommandTestSub;
             })(puremvc.SimpleCommand);
-            test.SimpleCommandTestSub = SimpleCommandTestSub;    
+            test.SimpleCommandTestSub = SimpleCommandTestSub;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
@@ -695,9 +659,8 @@ if( typeof define === "function" )
                 };
                 return SimpleCommandTest;
             })();
-            test.SimpleCommandTest = SimpleCommandTest;    
+            test.SimpleCommandTest = SimpleCommandTest;
         })(test || (test = {}));
-        
         var test;
         (function (test) {
             "use strict";
@@ -709,9 +672,9 @@ if( typeof define === "function" )
                 }
                 return FacadeTestVO;
             })();
-            test.FacadeTestVO = FacadeTestVO;    
+            test.FacadeTestVO = FacadeTestVO;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
@@ -719,7 +682,6 @@ if( typeof define === "function" )
                 __extends(FacadeTestCommand, _super);
                 function FacadeTestCommand() {
                     _super.apply(this, arguments);
-        
                 }
                 FacadeTestCommand.prototype.execute = function (notification) {
                     var vo = notification.getBody();
@@ -727,9 +689,9 @@ if( typeof define === "function" )
                 };
                 return FacadeTestCommand;
             })(puremvc.SimpleCommand);
-            test.FacadeTestCommand = FacadeTestCommand;    
+            test.FacadeTestCommand = FacadeTestCommand;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
@@ -759,11 +721,7 @@ if( typeof define === "function" )
                 };
                 FacadeTest.prototype.testRegisterAndRetrieveProxy = function () {
                     var facade = puremvc.Facade.getInstance();
-                    facade.registerProxy(new puremvc.Proxy('colors', [
-                        'red', 
-                        'green', 
-                        'blue'
-                    ]));
+                    facade.registerProxy(new puremvc.Proxy('colors', ['red', 'green', 'blue']));
                     var proxy = facade.retrieveProxy('colors');
                     YUITest.Assert.isInstanceOf(puremvc.Proxy, proxy, "Expecting proxy is Proxy");
                     var data = proxy.getData();
@@ -776,11 +734,7 @@ if( typeof define === "function" )
                 };
                 FacadeTest.prototype.testRegisterAndRemoveProxy = function () {
                     var facade = puremvc.Facade.getInstance();
-                    var proxy = new puremvc.Proxy('sizes', [
-                        '7', 
-                        '13', 
-                        '21'
-                    ]);
+                    var proxy = new puremvc.Proxy('sizes', ['7', '13', '21']);
                     facade.registerProxy(proxy);
                     var removedProxy = facade.removeProxy('sizes');
                     YUITest.Assert.areEqual('sizes', removedProxy ? removedProxy.getProxyName() : null, "Expecting removedProxy.getProxyName() == 'sizes'");
@@ -797,11 +751,7 @@ if( typeof define === "function" )
                 };
                 FacadeTest.prototype.testHasProxy = function () {
                     var facade = puremvc.Facade.getInstance();
-                    facade.registerProxy(new puremvc.Proxy('hasProxyTest', [
-                        1, 
-                        2, 
-                        3
-                    ]));
+                    facade.registerProxy(new puremvc.Proxy('hasProxyTest', [1, 2, 3]));
                     YUITest.Assert.isTrue(facade.hasProxy('hasProxyTest'), "Expecting facade.hasProxy('hasProxyTest') === true");
                 };
                 FacadeTest.prototype.testHasMediator = function () {
@@ -820,9 +770,9 @@ if( typeof define === "function" )
                 };
                 return FacadeTest;
             })();
-            test.FacadeTest = FacadeTest;    
+            test.FacadeTest = FacadeTest;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
@@ -830,16 +780,15 @@ if( typeof define === "function" )
                 __extends(MediatorTestSub, _super);
                 function MediatorTestSub() {
                     _super.apply(this, arguments);
-        
                 }
                 MediatorTestSub.prototype.hasFacade = function () {
                     return this.facade instanceof puremvc.Facade;
                 };
                 return MediatorTestSub;
             })(puremvc.Mediator);
-            test.MediatorTestSub = MediatorTestSub;    
+            test.MediatorTestSub = MediatorTestSub;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
@@ -862,9 +811,9 @@ if( typeof define === "function" )
                 };
                 return MediatorTest;
             })();
-            test.MediatorTest = MediatorTest;    
+            test.MediatorTest = MediatorTest;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
@@ -888,19 +837,14 @@ if( typeof define === "function" )
                     YUITest.Assert.areEqual("TestNoteType", notification.getType(), "Expecting notification.getType() == 'TestNoteType'");
                 };
                 NotificationTest.prototype.testToString = function () {
-                    var notification = new puremvc.Notification('TestNote', [
-                        1, 
-                        3, 
-                        5
-                    ], 'TestType');
+                    var notification = new puremvc.Notification('TestNote', [1, 3, 5], 'TestType');
                     var ts = "Notification Name: TestNote\nBody:1,3,5\nType:TestType";
                     YUITest.Assert.areEqual(ts, notification.toString(), "Expecting notification.testToString() == '" + ts + "'");
                 };
                 return NotificationTest;
             })();
-            test.NotificationTest = NotificationTest;    
+            test.NotificationTest = NotificationTest;
         })(test || (test = {}));
-        
         var test;
         (function (test) {
             "use strict";
@@ -912,9 +856,9 @@ if( typeof define === "function" )
                 }
                 return NotifierTestVO;
             })();
-            test.NotifierTestVO = NotifierTestVO;    
+            test.NotifierTestVO = NotifierTestVO;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
@@ -922,7 +866,6 @@ if( typeof define === "function" )
                 __extends(NotifierTestCommand, _super);
                 function NotifierTestCommand() {
                     _super.apply(this, arguments);
-        
                 }
                 NotifierTestCommand.prototype.execute = function (notification) {
                     var vo = notification.getBody();
@@ -930,9 +873,9 @@ if( typeof define === "function" )
                 };
                 return NotifierTestCommand;
             })(puremvc.SimpleCommand);
-            test.NotifierTestCommand = NotifierTestCommand;    
+            test.NotifierTestCommand = NotifierTestCommand;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
@@ -940,16 +883,15 @@ if( typeof define === "function" )
                 __extends(NotifierTestSub, _super);
                 function NotifierTestSub() {
                     _super.apply(this, arguments);
-        
                 }
                 NotifierTestSub.prototype.hasFacade = function () {
                     return this.facade instanceof puremvc.Facade;
                 };
                 return NotifierTestSub;
             })(puremvc.Notifier);
-            test.NotifierTestSub = NotifierTestSub;    
+            test.NotifierTestSub = NotifierTestSub;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
@@ -970,9 +912,9 @@ if( typeof define === "function" )
                 };
                 return NotifierTest;
             })();
-            test.NotifierTest = NotifierTest;    
+            test.NotifierTest = NotifierTest;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
@@ -1006,9 +948,9 @@ if( typeof define === "function" )
                 };
                 return ObserverTest;
             })();
-            test.ObserverTest = ObserverTest;    
+            test.ObserverTest = ObserverTest;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
@@ -1016,16 +958,15 @@ if( typeof define === "function" )
                 __extends(ProxyTestSub, _super);
                 function ProxyTestSub() {
                     _super.apply(this, arguments);
-        
                 }
                 ProxyTestSub.prototype.hasFacade = function () {
                     return this.facade instanceof puremvc.Facade;
                 };
                 return ProxyTestSub;
             })(puremvc.Proxy);
-            test.ProxyTestSub = ProxyTestSub;    
+            test.ProxyTestSub = ProxyTestSub;
         })(test || (test = {}));
-        
+
         var test;
         (function (test) {
             "use strict";
@@ -1038,11 +979,7 @@ if( typeof define === "function" )
                     YUITest.Assert.isTrue(proxyTestSub.hasFacade(), "Expecting proxyTestSub.hasFacade() === true");
                 };
                 ProxyTest.prototype.testConstructor = function () {
-                    var proxy = new puremvc.Proxy('colors', [
-                        'red', 
-                        'green', 
-                        'blue'
-                    ]);
+                    var proxy = new puremvc.Proxy('colors', ['red', 'green', 'blue']);
                     var data = proxy.getData();
                     YUITest.Assert.isNotNull(proxy, "Expecting proxy !== null");
                     YUITest.Assert.areEqual('colors', proxy.getProxyName(), "Expecting proxy.getProxyName() == 'colors'");
@@ -1057,11 +994,7 @@ if( typeof define === "function" )
                 };
                 ProxyTest.prototype.testDataAccessors = function () {
                     var proxy = new puremvc.Proxy('colors');
-                    proxy.setData([
-                        'red', 
-                        'green', 
-                        'blue'
-                    ]);
+                    proxy.setData(['red', 'green', 'blue']);
                     var data = proxy.getData();
                     YUITest.Assert.areEqual(3, data.length, "Expecting data.length == 3");
                     YUITest.Assert.areEqual('red', data[0], "Expecting data[0] == 'red'");
@@ -1070,9 +1003,8 @@ if( typeof define === "function" )
                 };
                 return ProxyTest;
             })();
-            test.ProxyTest = ProxyTest;    
+            test.ProxyTest = ProxyTest;
         })(test || (test = {}));
-        
         
 		return test;
 	});

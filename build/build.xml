@@ -73,12 +73,12 @@
 				<equals arg1="@{target}" arg2="" />
 			</condition>
 
-			<condition property="comments.arg" value="" else="${line.separator}--comments">
-				<equals arg1="@{comments}" arg2="" />
+			<condition property="removeComments.arg" value="" else="${line.separator}--removeComments">
+				<equals arg1="@{removeComments}" arg2="" />
 			</condition>
 
-			<condition property="declarations.arg" value="" else="${line.separator}--declarations">
-				<equals arg1="@{declarations}" arg2="" />
+			<condition property="declaration.arg" value="" else="${line.separator}--declaration">
+				<equals arg1="@{declaration}" arg2="" />
 			</condition>
 
 			<condition property="nolib.arg" value="" else="${line.separator}--nolib">
@@ -98,7 +98,7 @@
 
 			</pathconvert>
 
-			<property name="tsc.compile.file.content" value="${typescript.file.list}${out.arg}${module.arg}${comments.arg}${declarations.arg}${nolib.arg}${target.arg}" />
+			<property name="tsc.compile.file.content" value="${typescript.file.list}${out.arg}${module.arg}${removeComments.arg}${declaration.arg}${nolib.arg}${target.arg}" />
 
 			<!-- Write to the file -->
 			<echo message="Writing tsc command line arguments to : ${tsc.compile.file.path}" />
@@ -160,7 +160,6 @@
 	<target name="compile.src" description="Compile sources files from TypeScript to JavaScript">
 
 		<!-- Compile a single JavaScript file in the bin dir for release -->
-		<!-- declarations="${declarations-file-path}" -->
 		<TypeScriptRecurse
 			src="${src.dir}"
 			out="${release-file-path}"
