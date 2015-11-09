@@ -1,3 +1,7 @@
+declare module "puremvc" {
+    export = puremvc;
+}
+
 declare module puremvc
 {
 	export interface ICommand
