@@ -28,7 +28,7 @@ module test
 		/**
 		 * The name of this Notification.
 		 */
-		private static NAME:string = "ViewTestNote";
+		static NAME:string = "ViewTestNote";
 
 		/**
 		 * Factory method.

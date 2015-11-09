@@ -63,6 +63,6 @@ module test
 		 *
 		 * @constant
 		 */
-		private static NAME:string = 'ViewTestMediator3';
+		static NAME:string = 'ViewTestMediator3';
 	}
 }

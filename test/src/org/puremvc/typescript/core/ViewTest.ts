@@ -37,12 +37,12 @@ module test
 		/**
 		 * Used by some commands to mark the onRegister method as called.
 		 */
-		onRegisterCalled:bool = false;
+		onRegisterCalled:boolean = false;
 
 		/**
 		 * Used by some commands to mark the onRemove method as called.
 		 */
-		onRemoveCalled:bool = false;
+		onRemoveCalled:boolean = false;
 
 		/**
 		 * A test variable that proves the viewTestMethod was invoked by the View.
